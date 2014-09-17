@@ -1,0 +1,23 @@
+{
+  "name": "sandbox",
+  "version": "0.0.0",
+  "authors": [
+    "Scott Nesham <magnet-dev+sn@asynchrony.com>"
+  ],
+  "description": "a sandbox",
+  "main": "index.html",
+  "keywords": [
+    "cool"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bourbon": "~3.2"
+  }
+}

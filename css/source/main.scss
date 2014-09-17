@@ -1,0 +1,92 @@
+@import "../../bower_components/bourbon/dist/bourbon";
+$dark-grey: #212121;
+$progress-bar-grey: #636363;
+
+body{
+  padding: 100px;
+  color: #333;
+}
+
+$offset-beforeafter: -8px;
+$skewy-main-color: $progress-bar-grey;
+$skewy-secondary-color: $dark-grey;
+$skewy-text-color: #fff;
+
+%skewybeforeafter{
+  display:block;
+  content:"";
+  width: 30px;
+  height: 100%;
+  background: $skewy-main-color;
+  position: absolute;
+  top:0;
+  @include transform(skew(30deg));
+}
+.skewy{
+  position: relative;
+  display:inline-block;
+  color: $skewy-text-color;
+  //this is for testing only
+  margin-right: 100px;
+  div{
+    display: inline-block;
+    position: relative;
+  }
+  .skew{
+    background-color:$skewy-main-color;
+    vertical-align: bottom;
+    margin-right: 2px;
+    @include transform(skew(-30deg));
+    &:first-child{
+      .skew-inv{
+        left: -5px;
+      }
+      &:before{
+        @extend %skewybeforeafter;
+        left: -8px;
+      }
+    }
+    &:last-child{
+      margin-right: 0;
+      .skew-inv{
+        left: 3px;
+      }
+      &:after{
+        @extend %skewybeforeafter;
+        right: -8px;
+      }
+    }
+    &.current{
+      background: $skewy-secondary-color;
+      padding:10px;
+      left:6px;
+      margin-right: 3px;
+      letter-spacing: .05em;
+      font-size: 15px;
+      &:last-child{
+        .skew-inv{
+         left: 10px;
+        }
+        &:after{
+          background: $skewy-secondary-color;
+          right: -16px;
+        }
+      }
+      &:first-child{
+        .skew-inv{
+         left: -10px;
+        }
+        &:before{
+          background: $skewy-secondary-color;
+          left: -16px;
+        }
+      }
+    }
+  }
+  .skew-inv{
+    padding: 5px 10px;
+    z-index:1;
+    /* display:none; */
+    @include transform(skew(30deg));
+  }
+}
